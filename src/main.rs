@@ -24,7 +24,7 @@ fn main() {
 
     // handle subcommands
     match matches.subcommand() {
-        (copy::NAME, Some(subcommand)) => copy::copy(subcommand),
+        (copy::NAME, Some(matches)) => copy::copy(matches),
         _ => panic!("How did you get here?"),
     }
 }
