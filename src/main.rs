@@ -8,7 +8,7 @@ fn main() {
     let app = clap::App::new("Otter Crypt")
         .author("Tyler Kropiewnicki <tkotter8@gmail.com>")
         .version("0.1")
-        .setting(clap::AppSettings::ArgRequiredElseHelp)
+        .setting(clap::AppSettings::SubcommandRequiredElseHelp)
         // arguments
         .arg(util::get_debug_arg())
         // subcommands
