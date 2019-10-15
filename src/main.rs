@@ -1,5 +1,6 @@
+// external
 use clap;
-
+// internal
 mod copy;
 mod util;
 
@@ -9,7 +10,7 @@ fn main() {
         .author("Tyler Kropiewnicki <tkotter8@gmail.com>")
         .version("0.1")
         .setting(clap::AppSettings::SubcommandRequiredElseHelp)
-        // arguments
+        // flags
         .arg(util::get_debug_arg())
         // subcommands
         .subcommand(copy::get_subcommand());
@@ -21,8 +22,6 @@ fn main() {
     if matches.is_present(util::DEBUG_ARG_NAME) {
         println!("{:#?}", matches);
     }
-
-    // handle subcommands
     match matches.subcommand() {
         (copy::NAME, Some(matches)) => copy::copy(matches),
         _ => panic!("How did you get here?"),
